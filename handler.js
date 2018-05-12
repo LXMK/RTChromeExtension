@@ -1,4 +1,4 @@
-// Copyright (c) 2013 Maik Luxa. All rights reserved.
+// Copyright (c) 2018 Maik Luxa. All rights reserved.
 
 
 /**
