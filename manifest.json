@@ -3,11 +3,10 @@
 
   "name": "RottenTomatoes.com Context Menu",
   "description": "This extension adds a context menu for easy RottenTomatoes.com search.",
-  "version": "0.1",
+  "version": "0.3",
   "background" : { "scripts": ["handler.js"] },
   "permissions" : [
     "contextMenus",
-    "tabs",
     "http://*/*",
     "https://*/*"
    ],
