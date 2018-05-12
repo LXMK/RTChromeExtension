@@ -5,11 +5,7 @@
   "description": "This extension adds a context menu which provides easy Rotten Tomatoes search access.",
   "version": "0.3",
   "background" : { "scripts": ["handler.js"] },
-  "permissions" : [
-    "contextMenus",
-    "http://*/*",
-    "https://*/*"
-   ],
+  "permissions" : ["contextMenus","activeTab"],
   "icons" : {
     "16" : "RTicon16.png",
     "48" : "RTicon48.png",
