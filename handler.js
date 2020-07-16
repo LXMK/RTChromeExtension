@@ -8,7 +8,7 @@ function getClickHandler() {
   return function(info, tab) {
     var title = info.selectionText;
     title = title.trim();
-    title = title.replace(/ /gi, '+');
+    title = title.replace(/ /gi, '%20');
     encodeURIComponent(title);
     var search_url = "http://www.rottentomatoes.com/search/?search=" + title;
     chrome.tabs.create({ url: search_url });
