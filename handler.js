@@ -6,8 +6,7 @@
  */
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "search_rotten_tomatoes") {
-    let title = info.selectionText.trim().replace(/ /g, "%20");
-    let searchUrl = `https://www.rottentomatoes.com/search?search=${encodeURIComponent(title)}`;
+    let searchUrl = `https://www.rottentomatoes.com/search?search=${encodeURIComponent(info.selectionText.trim())}`;
     chrome.tabs.create({ url: searchUrl });
   }
 });
