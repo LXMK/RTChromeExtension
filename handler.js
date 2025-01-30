@@ -1,26 +1,24 @@
-// Copyright (c) 2018 Maik Luxa. All rights reserved.
+// Copyright (c) 2025 Maik Luxa. All rights reserved.
 
 
 /**
- * Returns a handler which will open a new tab when activated.
+ * Creates a service worker which will open a new tab when activated.
  */
-function getClickHandler() {
-  return function(info, tab) {
-    var title = info.selectionText;
-    title = title.trim();
-    title = title.replace(/ /gi, '%20');
-    encodeURIComponent(title);
-    var search_url = "http://www.rottentomatoes.com/search/?search=" + title;
-    chrome.tabs.create({ url: search_url });
-  };
-};
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === "search_rotten_tomatoes") {
+    let title = info.selectionText.trim().replace(/ /g, "%20");
+    let searchUrl = `https://www.rottentomatoes.com/search?search=${encodeURIComponent(title)}`;
+    chrome.tabs.create({ url: searchUrl });
+  }
+});
 
 /**
  * Create a context menu which will only show up for selected text.
  */
-chrome.contextMenus.create({
-  "title" : "Search on RottenTomatoes.com",
-  "type" : "normal",
-  "contexts" : ["selection"],
-  "onclick" : getClickHandler()
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: "search_rotten_tomatoes",
+    title: "Search on RottenTomatoes.com",
+    contexts: ["selection"]
+  });
 });
