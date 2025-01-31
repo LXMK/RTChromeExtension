@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "handler.js"
   },
-  "permissions": ["contextMenus", "tabs"],
+  "permissions": ["contextMenus"],
   "icons": {
     "16": "RTicon16.png",
     "48": "RTicon48.png",
